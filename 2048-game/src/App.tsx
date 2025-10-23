@@ -29,7 +29,7 @@ function App() {
   }, [move]);
 
   return (
-    <div className="min-h-screen bg-[#FAF8F0] from-amber-50 to-orange-50 flex items-center justify-center p-4 sora">
+    <div className="min-h-screen bg-[#FAF8F0] overflow-hidden flex items-center justify-center p-4 sora">
       <div className="w-full max-w-2xl">
         <Header 
           score={score} 
