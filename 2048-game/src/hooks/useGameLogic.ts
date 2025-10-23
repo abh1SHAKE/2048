@@ -75,6 +75,7 @@ export const useGameLogic = () => {
     score,
     bestScore,
     isGameOver,
+    setIsGameOver,
     move,
     resetGame,
   };

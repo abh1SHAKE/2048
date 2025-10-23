@@ -6,7 +6,7 @@ import { useGameLogic } from './hooks/useGameLogic';
 import type { Direction } from './utils/helpers';
 
 function App() {
-  const { grid, score, bestScore, isGameOver, move, resetGame } = useGameLogic();
+  const { grid, score, bestScore, isGameOver, setIsGameOver, move, resetGame } = useGameLogic();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -55,6 +55,7 @@ function App() {
         isOpen={isGameOver} 
         score={score} 
         onNewGame={resetGame} 
+        onClose={() => setIsGameOver(false)}
       />
     </div>
   );

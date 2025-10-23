@@ -13,16 +13,21 @@ interface GameOverModalProps {
   isOpen: boolean;
   score: number;
   onNewGame: () => void;
+  onClose: () => void;
 }
 
 export const GameOverModal: React.FC<GameOverModalProps> = ({
   isOpen,
   score,
   onNewGame,
+  onClose
 }) => {
   return (
-    <Dialog open={isOpen}>
-      <DialogContent className="sm:max-w-md sora bg-[#FAF8F0]">
+    <Dialog open={isOpen} onOpenChange={(open) => open || onClose()}>
+      <DialogContent 
+        className="sm:max-w-md sora bg-[#FAF8F0]"
+        onInteractOutside={(e) => e.preventDefault()}
+      >
         <DialogHeader>
           <DialogTitle className="text-3xl text-[#988776] font-bold">Game Over!</DialogTitle>
           <DialogDescription className="text-lg pt-2">
