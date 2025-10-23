@@ -31,7 +31,7 @@ export const Tile: React.FC<TileProps> = ({ value }) => {
       className={`
         ${colorClass}
         text-xl
-        md:text-2xl
+        md:text-[28px]
         w-[66px]
         md:w-[90px]
         shadow-md
