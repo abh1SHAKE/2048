@@ -4,9 +4,21 @@ import { Board } from './components/Board';
 import { GameOverModal } from './components/GameOverModal';
 import { useGameLogic } from './hooks/useGameLogic';
 import type { Direction } from './utils/helpers';
+import { useSwipeable } from 'react-swipeable';
 
 function App() {
   const { grid, score, bestScore, isGameOver, setIsGameOver, move, resetGame } = useGameLogic();
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => move('left'),
+    onSwipedRight: () => move('right'),
+    onSwipedUp: () => move('up'),
+    onSwipedDown: () => move('down'),
+    preventScrollOnSwipe: true,
+    trackTouch: true,
+    trackMouse: false,
+    delta: 20,
+  });
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -29,7 +41,9 @@ function App() {
   }, [move]);
 
   return (
-    <div className="h-dvh bg-[#FAF8F0] overflow-hidden flex items-center justify-center p-4 sora touch-none">
+    <div 
+      {...handlers}
+      className="h-dvh bg-[#FAF8F0] overflow-hidden flex items-center justify-center p-4 sora touch-none">
       <div className="w-full max-w-2xl">
         <Header 
           score={score} 
