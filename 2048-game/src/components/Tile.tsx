@@ -34,6 +34,7 @@ export const Tile: React.FC<TileProps> = ({ value }) => {
         md:text-2xl
         w-[66px]
         md:w-[90px]
+        shadow-md
         aspect-square rounded-md md:p-3 p-0
         flex items-center justify-center
         font-bold transition-all duration-150
